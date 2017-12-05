@@ -1,0 +1,188 @@
+ext {
+    minSdkVersion = 19
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.0'
+    sourceCompatibilityVersion = JavaVersion.VERSION_1_7
+    targetCompatibilityVersion = JavaVersion.VERSION_1_7
+
+    //PLUGIN VERSIONS
+    supportCompatPluginVersion = '2.3.3'
+    jacocoPluginVersion = '0.7.6.201602180812'
+    hockeyappPluginVersion = '3.6'
+    spoonPluginVersion = '1.2.2'
+    newRelicPluginVersion = '5.10.0'
+    retrolambdaPluginVersion = '3.7.0'
+
+    //RELEASE LIBRARIES
+    kotlinVersion = '1.2.0'
+    adobeVersion = '4.13.1'
+    supportLibraryVersion = '26.1.0'
+    archComponentsVersion = '1.0.0'
+    constraintLayoutVersion = '1.0.2'
+    playServicesVersion = '10.0.1'
+    butterknifeVersion = '8.5.1'
+    timberVersion = '4.3.1'
+    gsonVersion = '2.8.1'
+    dagger2Version = '2.7'
+    rxAndroidVersion = '2.0.1'
+    rxJavaVersion = '2.0.8'
+    glideVersion = '3.7.0'
+    okHttpVersion = '3.6.0'
+    retrofitVersion = '2.2.0'
+    appdynamicsVersion = '4.2.9.0'
+    autoValueVersion = '1.4'
+    autoValueParcelVersion = '0.2.5'
+    autoValueGsonVersion = '0.5.0'
+    calligraphyVersion = '2.2.0'
+    photoViewVersion = '2.1.2'
+    jodaTimeVersion = '2.9.9'
+
+    //DEBUG LIBRARIES
+    leakCanaryVersion = '1.5'
+    newRelicVersion = '5.10.0'
+
+    //TESTING LIBRARIES
+    espressoVersion = '3.0.0'
+    testingSupportVersion = '1.0.0'
+    mockitoVersion = '2.10.0'
+    powerMockitoVersion = '1.6.5'
+    spoonVersion = '1.7.0'
+    assertjVersion = '3.5.2'
+    assertJAndroidVersion = '1.1.1'
+    junitVersion = '4.12'
+    robolectricVersion = '3.4.2'
+    robolectricShadowsVersion = '3.4-rc2'
+}
+
+ext.pluginDep = [
+        supportCompat: "com.android.tools.build:gradle:$supportCompatPluginVersion",
+        jacoco       : "org.jacoco:org.jacoco.core:$jacocoPluginVersion",
+        hockeyapp    : "de.felixschulze.gradle:gradle-hockeyapp-plugin:$hockeyappPluginVersion",
+        kotlin       : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
+        spoon        : "com.stanfy.spoon:spoon-gradle-plugin:$spoonPluginVersion",
+        butterknife  : "com.jakewharton:butterknife-gradle-plugin:$butterknifeVersion",
+        newRelic     : "com.newrelic.agent.android:agent-gradle-plugin:$newRelicPluginVersion",
+        retrolambda  : "me.tatarka:gradle-retrolambda:$retrolambdaPluginVersion"
+]
+
+ext.deps = [
+
+        /////////////////////////////////////////////////////
+        ///              RELEASE LIBRARIES                ///
+        /////////////////////////////////////////////////////
+
+        //Android support libraries
+        supportCompat           : "com.android.support:appcompat-v7:$supportLibraryVersion",
+        supportDesign           : "com.android.support:design:$supportLibraryVersion",
+        supportCardView         : "com.android.support:cardview-v7:$supportLibraryVersion",
+        supportPercent          : "com.android.support:percent:$supportLibraryVersion",
+        supportCustomTabs       : "com.android.support:customtabs:$supportLibraryVersion",
+        supportAnnotations      : "com.android.support:support-annotations:$supportLibraryVersion",
+        supportV4               : "com.android.support:support-v4:$supportLibraryVersion",
+        constraintLayout        : "com.android.support.constraint:constraint-layout:$constraintLayoutVersion",
+        //Architecture components
+        archRuntime             : "android.arch.lifecycle:runtime:$archComponentsVersion",
+        archExtensions          : "android.arch.lifecycle:extensions:$archComponentsVersion",
+        archCompiler            : "android.arch.lifecycle:compiler:$archComponentsVersion",
+        //Room
+        roomRuntime             : "android.arch.persistence.room:runtime:$archComponentsVersion",
+        roomCompiler            : "android.arch.persistence.room:compiler:$archComponentsVersion",
+        roomRxJava              : "android.arch.persistence.room:rxjava2:$archComponentsVersion",
+        //Adobe analytics
+        adobeAnalytics          : "adobeMobileLibrary-$adobeVersion",
+        //Butterknife
+        butterknife             : "com.jakewharton:butterknife:$butterknifeVersion",
+        butterknifeCompiler     : "com.jakewharton:butterknife-compiler:$butterknifeVersion",
+        //Timber
+        timber                  : "com.jakewharton.timber:timber:$timberVersion",
+        //Gson
+        gson                    : "com.google.code.gson:gson:$gsonVersion",
+        //Dagger 2
+        dagger                  : "com.google.dagger:dagger:$dagger2Version",
+        daggerCompiler          : "com.google.dagger:dagger-compiler:$dagger2Version",
+        //RxJava
+        rxandroid               : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+        rxjava                  : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+        //Glide
+        glide                   : "com.github.bumptech.glide:glide:$glideVersion",
+        //OkHttp
+        okhttp                  : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+        okhttpLogging           : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+        //Retrofit
+        retrofit                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+        retrofitGson            : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+        retroftiRxJava          : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+        //App dynamics
+        //TODO uncomment when id becomes available
+        //appdynamics: "com.appdynamics:appdynamics-runtime:$appdynamicsVersion",
+        //Auto value
+        autoValue               : "com.google.auto.value:auto-value:$autoValueVersion",
+        autoValueCompiler       : "com.google.auto.value:auto-value:$autoValueVersion",
+        //Auto value parcels
+        autoValueParcel         : "com.ryanharter.auto.value:auto-value-parcel-adapter:$autoValueParcelVersion",
+        autoValueParcelCompiler : "com.ryanharter.auto.value:auto-value-parcel:$autoValueParcelVersion",
+        autoValueGson           : "com.ryanharter.auto.value:auto-value-gson:$autoValueGsonVersion",
+        //Calligraphy
+        calligraphy             : "uk.co.chrisjenx:calligraphy:$calligraphyVersion",
+        //Zoom ImageView library
+        photoView               : "com.github.chrisbanes:PhotoView:$photoViewVersion",
+        //Kotlin
+        kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion",
+        kotlinPlugin            : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
+        kotlinTest              : "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion",
+        //JodaTime
+        jodaTime                : "joda-time:joda-time:$jodaTimeVersion",
+
+        /////////////////////////////////////////////////////
+        ///                DEBUG LIBRARIES                ///
+        /////////////////////////////////////////////////////
+
+        //Leak canary
+        leakcanary              : "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion",
+        leakcanaryNoOp          : "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion",
+        newRelic                : "com.newrelic.agent.android:android-agent:$newRelicVersion",
+
+        /////////////////////////////////////////////////////
+        ///                     TESTS                     ///
+        /////////////////////////////////////////////////////
+
+        // Espresso UI Testing dependencies.
+        espressoCore            : "com.android.support.test.espresso:espresso-core:$espressoVersion",
+        espressoContrib         : "com.android.support.test.espresso:espresso-contrib:$espressoVersion",
+        espressoIntents         : "com.android.support.test.espresso:espresso-intents:$espressoVersion",
+        espressoIdlingResource  : "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion",
+        espressoIdlingConcurrent: "com.android.support.test.espresso.idling:idling-concurrent:$espressoVersion",
+        espressoIdlingNet       : "com.android.support.test.espresso.idling:idling-net:$espressoVersion",
+        // Android Testing Support Library's runner and rules
+        testRunner              : "com.android.support.test:runner:$testingSupportVersion",
+        testRules               : "com.android.support.test:rules:$testingSupportVersion",
+        assertjAndroid          : "com.squareup.assertj:assertj-android:$assertJAndroidVersion",
+        spoon                   : "com.squareup.spoon:spoon-client:$spoonVersion",
+        // Dependencies for local unit tests
+        junit                   : "junit:junit:$junitVersion",
+        mockito                 : "org.mockito:mockito-inline:$mockitoVersion",
+        assertJ                 : "org.assertj:assertj-core:$assertjVersion",
+        robolectric             : "org.robolectric:robolectric:$robolectricVersion",
+        robolectricShadow       : "org.robolectric:shadows-support-v4:$robolectricShadowsVersion",
+
+]
+
+/*
+Resolves dependency versions across test and production APKs, specifically, transitive
+dependencies. This is required since Espresso internally has a dependency on support-annotations.
+*/
+configurations.all {
+    resolutionStrategy.force "com.android.support:support-annotations:$supportLibraryVersion"
+    resolutionStrategy.force "com.android.support:support-v4:$supportLibraryVersion"
+    resolutionStrategy.force "com.android.support:appcompat-v7:$supportLibraryVersion"
+    resolutionStrategy.force "com.android.support:design:$supportLibraryVersion"
+    resolutionStrategy.force "com.android.support:transition:$supportLibraryVersion"
+    resolutionStrategy.force "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    resolutionStrategy.force "com.google.guava:guava:20.0"
+    resolutionStrategy.force "com.google.gson:gson:2.8.1"
+    resolutionStrategy.force "android.arch.lifecycle:common:$archComponentsVersion"
+    resolutionStrategy.force "android.arch.lifecycle:runtime:$archComponentsVersion"
+    resolutionStrategy.force "android.arch.lifecycle:extensions:$archComponentsVersion"
+    resolutionStrategy.force "android.arch.lifecycle:compiler:$archComponentsVersion"
+}

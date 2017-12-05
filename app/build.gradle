@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.theappbusiness.androidtest"
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    /////////////////////////////////////////////////////
+    ///              RELEASE LIBRARIES                ///
+    /////////////////////////////////////////////////////
+
+    //Android support libraries
+    compile deps.supportCompat
+    compile deps.supportDesign
+    compile deps.supportCardView
+    compile deps.supportPercent
+    compile deps.supportCustomTabs
+    compile deps.supportAnnotations
+    compile deps.supportV4
+    compile deps.constraintLayout
+    //Architecture components
+    compile deps.archRuntime
+    compile deps.archExtensions
+    kapt deps.archCompiler
+    //Room
+    compile deps.roomRuntime
+    kapt deps.roomCompiler
+    compile deps.roomRxJava
+    //Timber
+    compile deps.timber
+    //Gson
+    compile deps.gson
+    //Dagger 2
+    compile deps.dagger
+    kapt deps.daggerCompiler
+    //RxJava
+    compile deps.rxandroid
+    compile deps.rxjava
+    //Glide
+    compile deps.glide
+    //OkHttp
+    compile deps.okhttp
+    compile deps.okhttpLogging
+    //Retrofit
+    compile deps.retrofit
+    compile deps.retrofitGson
+    compile deps.retroftiRxJava
+    //Auto value
+    provided deps.autoValue
+    kapt deps.autoValueCompiler
+    //Auto value parcels
+    compile deps.autoValueParcel
+    kapt deps.autoValueParcelCompiler
+    //Auto value Gson
+    provided(deps.autoValueGson) {
+        exclude group: 'com.google.gson', module: 'gson'
+    }
+    kapt deps.autoValueGson
+
+    //Calligraphy
+    compile deps.calligraphy
+    //Photoview library for Zoom image view
+    compile deps.photoView
+    //Kotlin
+    compile deps.kotlin
+    //JodaTime
+    compile deps.jodaTime
+
+    /////////////////////////////////////////////////////
+    ///                DEBUG LIBRARIES                ///
+    /////////////////////////////////////////////////////
+
+    //Leak canary
+    debugCompile deps.leakcanary
+    releaseCompile deps.leakcanaryNoOp
+
+    /////////////////////////////////////////////////////
+    ///            INSTRUMENTATION TESTS              ///
+    /////////////////////////////////////////////////////
+
+    // Espresso UI Testing dependencies
+    androidTestCompile deps.espressoCore
+    androidTestCompile deps.espressoIntents
+    androidTestCompile deps.espressoContrib
+    // Android Testing Support Library's runner, rules and assertion
+    androidTestCompile deps.testRules
+    androidTestCompile deps.testRunner
+    androidTestCompile deps.assertjAndroid
+    // Spoon
+    androidTestCompile deps.spoon
+    // New Relic
+    compile deps.newRelic
+    // Idling Resources
+    debugCompile deps.espressoIdlingResource
+    debugCompile deps.espressoIdlingConcurrent
+    debugCompile deps.espressoIdlingNet
+
+    /////////////////////////////////////////////////////
+    ///                  UNIT TESTS                   ///
+    /////////////////////////////////////////////////////
+
+    // Dependencies for local unit tests
+    testCompile deps.leakcanaryNoOp
+    testCompile deps.junit
+    testCompile deps.mockito
+    testCompile deps.assertJ
+    testCompile deps.assertjAndroid
+    testCompile deps.dagger
+    testCompile deps.daggerCompiler
+    testCompile deps.robolectric
+    testCompile deps.robolectricShadow
+}
